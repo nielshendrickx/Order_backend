@@ -1,9 +1,11 @@
 package com.switchfully.order.domain.user;
 
 import com.switchfully.order.domain.DummyData;
+import com.switchfully.order.domain.exceptions.AuthenticationFailedException;
 import com.switchfully.order.domain.exceptions.EmailAlreadyRegisteredException;
 import com.switchfully.order.domain.exceptions.CustomerNotFoundException;
 import com.switchfully.order.domain.user.customer.Customer;
+import com.switchfully.order.domain.user.system.security.Hash;
 import com.switchfully.order.domain.user.system.security.Role;
 import org.springframework.stereotype.Repository;
 
@@ -50,10 +52,17 @@ public class UserRepository {
                 .orElseThrow(CustomerNotFoundException::new);
     }
 
+    public User authenticate(String email, String password) {
+        return userRepository.values().stream()
+                .filter(user -> user.getEmail().equals(email))
+                .filter(user -> Hash.verifyHash(password, user.getPassword()))
+                .findFirst()
+                .orElseThrow(AuthenticationFailedException::new);
+    }
+
     private void addDefaultData() {
         for(User user : dummyData.getDefaultUsers()) {
             addUser(user);
         }
     }
-
 }
