@@ -30,4 +30,9 @@ class ExceptionTest {
     void itemOutOfStockException_returnsCorrectMessage() {
         assertEquals("The requested item is out of stock!", new ItemOutOfStockException().getMessage());
     }
+
+    @Test
+    void nameNotValidException_returnsCorrectMessage() {
+        assertEquals("The provide first or last name is not valid! Please only use letters." , new NameNotValidException().getMessage());
+    }
 }

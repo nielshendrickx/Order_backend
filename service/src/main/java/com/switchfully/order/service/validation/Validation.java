@@ -1,6 +1,7 @@
 package com.switchfully.order.service.validation;
 
 import com.switchfully.order.domain.exceptions.EmailNotValidException;
+import com.switchfully.order.domain.exceptions.NameNotValidException;
 
 import java.io.IOException;
 
@@ -11,6 +12,12 @@ public class Validation {
         java.util.regex.Matcher m = p.matcher(email);
         if(!m.matches()) {
             throw new EmailNotValidException(email);
+        }
+    }
+
+    public static void isValidName(String name) throws IOException {
+        if(!name.matches("[a-zA-Z_]+")) {
+            throw new NameNotValidException();
         }
     }
 }

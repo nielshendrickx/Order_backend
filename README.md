@@ -19,43 +19,43 @@ As a developer you have to make choices constantly.
 Choices about time efficiency and quality, choices about your architecture, choices about functionality.
 Which choices did you make? (List your choices below, remove what is not relevant)
  - What is your focus when working on Örder?
- > ....
+ > Security : auth part. & TDD
  - Do you have a single-module maven project? Or a multi-module maven project?
- > ....
+ > Multi
  - Are you working test-first?
- > ....
+ > Yes
  - Do you have security enabled?
- > ....
+ > Yes
  - Do you have logging enabled?
- > ....
+ > Yes
  - What happens if the firstname contains numbers? Is this allowed?
- > ....
+ > A NameNotValidException is thrown.
  - In which currency are the prices?
- > ....
+ > Enum with EUR, USD.
  - Does the phonenumber include the country code?
- > ....
+ > Yes
  - Did you go for a similar architecture as digibooky?
- > ....
+ > Yes
  - Is your application deployed in the cloud? (Heroku?)
- > ....
+ > Yes using travis-ci, after all tests succeeded.
  - ....
 ## Progress Story 0 (project setup & technical requirements)
  - [x] Be awesome
- - [ ] Setup Github
- - [ ] Setup Jenkins
- - [ ] Basic setup / skeleton for Spring Boot & Maven
- - [ ] I have my first REST Controller ready
- - [ ] I commit/push my code on a regular basis
- - [ ] Swagger is enabled
+ - [x] Setup Github
+ - [x] Setup Jenkins
+ - [x] Basic setup / skeleton for Spring Boot & Maven
+ - [x] I have my first REST Controller ready
+ - [x] I commit/push my code on a regular basis
+ - [x] Swagger is enabled
 ### Comments:
 ## Story 1
- - [ ] The functional requirements are implemented
- - [ ] The requirements are tested with Postman
- - [ ] The requirements are unit tested
- - [ ] The requirements are integration tested
- - [ ] Proper logging is setup
- - [ ] I did a "codereview" of my own code before declaring it "done".
- - [ ] I commit/push my code when this story was done
+ - [x] The functional requirements are implemented
+ - [x] The requirements are tested with Postman
+ - [x] The requirements are unit tested
+ - [x] The requirements are integration tested
+ - [x] Proper logging is setup
+ - [x] I did a "codereview" of my own code before declaring it "done".
+ - [x] I commit/push my code when this story was done
 ### Comments:
 ## Story 2
  - [ ] The functional requirements are implemented
@@ -76,22 +76,22 @@ Which choices did you make? (List your choices below, remove what is not relevan
  - [ ] I commit/push my code when this story was done
 ### Comments: 
 ## Story 7
- - [ ] The functional requirements are implemented
- - [ ] The requirements are tested with Postman
- - [ ] The requirements are unit tested
- - [ ] The requirements are integration tested
- - [ ] Proper logging is setup
- - [ ] I did a "codereview" of my own code before declaring it "done".
- - [ ] I commit/push my code when this story was done
+ - [x] The functional requirements are implemented
+ - [x] The requirements are tested with Postman
+ - [x] The requirements are unit tested
+ - [x] The requirements are integration tested
+ - [x] Proper logging is setup
+ - [x] I did a "codereview" of my own code before declaring it "done".
+ - [x] I commit/push my code when this story was done
 ### Comments: 
 ## Story 8
- - [ ] The functional requirements are implemented
- - [ ] The requirements are tested with Postman
- - [ ] The requirements are unit tested
- - [ ] The requirements are integration tested
- - [ ] Proper logging is setup
- - [ ] I did a "codereview" of my own code before declaring it "done".
- - [ ] I commit/push my code when this story was done
+ - [x] The functional requirements are implemented
+ - [x] The requirements are tested with Postman
+ - [x] The requirements are unit tested
+ - [x] The requirements are integration tested
+ - [x] Proper logging is setup
+ - [x] I did a "codereview" of my own code before declaring it "done".
+ - [x] I commit/push my code when this story was done
 ### Comments: 
 ## Nice-To-Have stories
  - [ ] Story 4
@@ -99,4 +99,4 @@ Which choices did you make? (List your choices below, remove what is not relevan
  - [ ] Story 6
  - [ ] Story 9
  - [ ] Story 10
-### Comments:
+### Comments: Stopped with the self eval after the basics to prepare presentation about CI/CD with Travis.
