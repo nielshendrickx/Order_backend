@@ -6,15 +6,13 @@ import com.switchfully.order.domain.exceptions.EmailNotValidException;
 import com.switchfully.order.domain.exceptions.NameNotValidException;
 import com.switchfully.order.domain.user.UserRepository;
 import com.switchfully.order.domain.user.customer.Address;
-import com.switchfully.order.domain.user.customer.Customer;
-import com.switchfully.order.service.authentication.AuthMapper;
 import com.switchfully.order.service.user.customer.CreateCustomerDto;
 import com.switchfully.order.service.user.customer.CustomerMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class UserServiceTest {
 

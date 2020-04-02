@@ -23,7 +23,7 @@ public class UserService {
     }
 
     public CustomerDto registerCustomer(CreateCustomerDto newCustomer) throws IOException {
-        validateNewCustomer(newCustomer.getEmail());
+        validateNewCustomer(newCustomer);
         return customerMapper.toDto(userRepository.registerCustomer(customerMapper.toCustomer(newCustomer)));
     }
 
@@ -39,8 +39,10 @@ public class UserService {
         return userRepository.isEmailAvailable(email);
     }
 
-    private void validateNewCustomer(String email) throws IOException {
-        Validation.isValidEmailAddress(email);
-        isEmailAvailable(email);
+    private void validateNewCustomer(CreateCustomerDto newCustomer) throws IOException {
+        Validation.isValidEmailAddress(newCustomer.getEmail());
+        Validation.isValidName(newCustomer.getFirstName());
+        Validation.isValidName(newCustomer.getLastName());
+        isEmailAvailable(newCustomer.getEmail());
     }
 }
