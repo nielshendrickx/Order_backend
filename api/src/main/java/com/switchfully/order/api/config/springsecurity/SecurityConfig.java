@@ -1,5 +1,6 @@
 package com.switchfully.order.api.config.springsecurity;
 
+import com.switchfully.order.api.endpoints.CustomerController;
 import com.switchfully.order.api.exceptions.CustomAccessDeniedHandler;
 import com.switchfully.order.api.security.UserAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         http.csrf().disable().authorizeRequests()
+                .antMatchers(CustomerController.CUSTOMER_RESOURCE_PATH + "/**").permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic()
                 .authenticationEntryPoint(authEntryPoint)

@@ -1,0 +1,46 @@
+package com.switchfully.order.service.user;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.switchfully.order.domain.user.system.security.Role;
+import com.switchfully.order.service.Views;
+
+public abstract class CreateUserDto {
+        private String firstName;
+        private String lastName;
+        private String email;
+        @JsonView(Views.Admin.class)
+        private Role role;
+        @JsonView(Views.Internal.class)
+        private String password;
+
+        @JsonCreator
+        public CreateUserDto( @JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("email") String email, @JsonProperty("password") String password, @JsonProperty("role") Role role) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.role = role;
+            this.password = password;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public Role getRole() {
+            return role;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+    }

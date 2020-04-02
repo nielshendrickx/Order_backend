@@ -5,6 +5,7 @@ import com.switchfully.order.domain.exceptions.AuthenticationFailedException;
 import com.switchfully.order.domain.exceptions.EmailAlreadyRegisteredException;
 import com.switchfully.order.domain.exceptions.CustomerNotFoundException;
 import com.switchfully.order.domain.user.customer.Customer;
+import com.switchfully.order.domain.user.system.Admin;
 import com.switchfully.order.domain.user.system.security.Hash;
 import com.switchfully.order.domain.user.system.security.Role;
 import org.springframework.stereotype.Repository;
@@ -32,9 +33,14 @@ public class UserRepository {
         return true;
     }
 
-    public User addUser(User newUser) {
-        userRepository.put(newUser.getId(), newUser);
-        return newUser;
+    public Customer registerCustomer(Customer newCustomer) {
+        userRepository.put(newCustomer.getId(), newCustomer);
+        return newCustomer;
+    }
+
+    public Admin registerAdmin(Admin newAdmin) {
+        userRepository.put(newAdmin.getId(), newAdmin);
+        return newAdmin;
     }
 
     public Collection<Customer> getAllCustomers() {
@@ -62,7 +68,7 @@ public class UserRepository {
 
     private void addDefaultData() {
         for(User user : dummyData.getDefaultUsers()) {
-            addUser(user);
+            userRepository.put(user.getId(), user);
         }
     }
 }

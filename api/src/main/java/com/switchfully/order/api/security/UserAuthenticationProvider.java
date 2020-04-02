@@ -1,7 +1,7 @@
 package com.switchfully.order.api.security;
 
-import com.switchfully.order.domain.user.User;
 import com.switchfully.order.domain.user.system.security.Feature;
+import com.switchfully.order.service.authentication.AuthDto;
 import com.switchfully.order.service.authentication.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -31,12 +31,12 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        User user = authenticationService.authenticate(authentication.getPrincipal().toString(), authentication.getCredentials().toString());
-        if (user != null) {
+        AuthDto authDto = authenticationService.authenticate(authentication.getPrincipal().toString(), authentication.getCredentials().toString());
+        if (authDto != null) {
             return new UsernamePasswordAuthenticationToken(
-                    user.getFirstName(),
-                    user.getPassword(),
-                    rolesToGrantedAuthorities(Feature.getFeaturesForRoles(newArrayList(user.getRole().toString()))));
+                    authDto.getEmail(),
+                    authDto.getPassword(),
+                    rolesToGrantedAuthorities(Feature.getFeaturesForRoles(newArrayList(authDto.getRole().toString()))));
         }
         throw new BadCredentialsException("The provided credentials were invalid.");
     }

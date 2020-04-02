@@ -28,12 +28,6 @@ class FeatureTest {
     }
 
     @Test
-    void getFeaturesForAdmin_GivenFeatureContainsViewCustomer() {
-        List<Feature> actual = Feature.getFeaturesForRoles(newArrayList(Role.ADMIN.name()));
-        assertThat(actual).contains(Feature.VIEW_CUSTOMER);
-    }
-
-    @Test
     void getFeaturesForAdmin_GivenFeatureContainsShippingOverview() {
         List<Feature> actual = Feature.getFeaturesForRoles(newArrayList(Role.ADMIN.name()));
         assertThat(actual).contains(Feature.SHIPPING_OVERVIEW);

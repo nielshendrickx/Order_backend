@@ -1,5 +1,6 @@
 package com.switchfully.order.domain.user;
 
+import com.switchfully.order.domain.user.system.security.Hash;
 import com.switchfully.order.domain.user.system.security.Role;
 
 import java.util.Objects;
@@ -18,7 +19,7 @@ public abstract class User {
         this.lastName = lastName;
         this.email = email;
         this.role = role;
-        this.password = password;
+        this.password = Hash.hash(password);
     }
 
     public String getId() {
